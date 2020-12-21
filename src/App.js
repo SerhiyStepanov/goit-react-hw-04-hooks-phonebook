@@ -5,12 +5,10 @@ import Filter from "./Components/Filter";
 import ContactList from "./Components/ContactList";
 
 export default function App() {
-  const [contacts, useContacts] = useState(() => {
-    return [];
-  });
+  const [contacts, useContacts] = useState([]);
   const [filter, useFilter] = useState("");
 
-  const addContact = (data) => {
+  function addContact(data) {
     console.log(data);
 
     const repeatName = contacts.some((el) => el.name === data.name);
@@ -30,7 +28,8 @@ export default function App() {
       number: data.number,
     };
     console.log(contact);
-  };
+    // useContacts((state) => [...state, contact]);
+  }
 
   return (
     <>
