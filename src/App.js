@@ -3,6 +3,7 @@ import shortid from "shortid";
 import ContactForm from "./Components/Form";
 import Filter from "./Components/Filter";
 import ContactList from "./Components/ContactList";
+import "./App.css";
 
 export default function App() {
   const [contacts, setContacts] = useState(() => {
@@ -51,7 +52,7 @@ export default function App() {
   });
 
   return (
-    <>
+    <div style={{ marginLeft: "16px" }}>
       <h1>Phonebook</h1>
 
       <ContactForm onSubmit={addContact} />
@@ -62,6 +63,6 @@ export default function App() {
         contacts={visibleContacts()}
         onDeleteContact={deleteContact}
       />
-    </>
+    </div>
   );
 }
