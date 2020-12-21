@@ -54,6 +54,7 @@ export default function ContactForm(props) {
             onChange={onInputChange}
             className={s.input}
             placeholder="Enter name"
+            autoComplete="Off"
           />
         </div>
 

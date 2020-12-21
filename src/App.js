@@ -5,7 +5,9 @@ import Filter from "./Components/Filter";
 import ContactList from "./Components/ContactList";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(window.localStorage.getItem("contacts")) ?? "";
+  });
   const [filter, setFilter] = useState("");
 
   function addContact(data) {
@@ -43,6 +45,10 @@ export default function App() {
       return contact.name.toLowerCase().includes(normalizedFilter);
     });
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
+  });
 
   return (
     <>
