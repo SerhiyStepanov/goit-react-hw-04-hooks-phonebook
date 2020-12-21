@@ -52,7 +52,7 @@ export default function App() {
   });
 
   return (
-    <div style={{ marginLeft: "16px" }}>
+    <>
       <h1>Phonebook</h1>
 
       <ContactForm onSubmit={addContact} />
@@ -63,6 +63,6 @@ export default function App() {
         contacts={visibleContacts()}
         onDeleteContact={deleteContact}
       />
-    </div>
+    </>
   );
 }
