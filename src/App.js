@@ -9,7 +9,7 @@ export default function App() {
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem("contacts")) ?? "";
   });
-  const [filter, setFilter] = useState("");
+  const [filters, setFilters] = useState("");
 
   function addContact(data) {
     const repeatName = contacts.some((el) => el.name === data.name);
@@ -37,11 +37,11 @@ export default function App() {
   };
 
   const filterContacts = (e) => {
-    setFilter(e.target.value);
+    setFilters(e.target.value);
   };
 
   const visibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filters.toLowerCase();
     return contacts.filter((contact) => {
       return contact.name.toLowerCase().includes(normalizedFilter);
     });
@@ -58,7 +58,7 @@ export default function App() {
       <ContactForm onSubmit={addContact} />
 
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={filterContacts} />
+      <Filter value={filters} onChange={filterContacts} />
       <ContactList
         contacts={visibleContacts()}
         onDeleteContact={deleteContact}
