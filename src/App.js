@@ -47,12 +47,14 @@ export default function App() {
     });
   };
 
+  const visibleContactsView = visibleContacts();
+
   useEffect(() => {
     window.localStorage.setItem("contacts", JSON.stringify(contacts));
   });
 
   return (
-    <>
+    <div style={{ marginLeft: "16px" }}>
       <h1>Phonebook</h1>
 
       <ContactForm onSubmit={addContact} />
@@ -60,9 +62,9 @@ export default function App() {
       <h2>Contacts</h2>
       <Filter value={filters} onChange={filterContacts} />
       <ContactList
-        contacts={visibleContacts()}
+        contacts={visibleContactsView}
         onDeleteContact={deleteContact}
       />
-    </>
+    </div>
   );
 }
